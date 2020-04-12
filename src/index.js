@@ -15,6 +15,10 @@ const GlobalStyle = createGlobalStyle`
 const StyledContainer = styled.div`
   display: flex;
   flex-direction: column;
+
+  .searchIndex {
+    background-color:#ccc !important;
+  }
 `
 
 export default class ReactSearchBox extends Component {
@@ -78,6 +82,7 @@ export default class ReactSearchBox extends Component {
      */
     value: this.props.value ? this.props.value : '',
     matchedRecords: [],
+    // searchIndex: -1,
   }
 
   constructor(props) {
@@ -138,19 +143,17 @@ export default class ReactSearchBox extends Component {
         // arrow-down
         if (e.keyCode == 40) {
           e.preventDefault();
-          console.log("down")
-          // moveDown(ul);
+          this.moveDown(ul);
         }
         // arrow-up
         if (e.keyCode == 38) {
           e.preventDefault();
-          console.log("up")
-          // moveUp(ul);
+          this.moveUp(ul);
         }
         // enter
         if (e.keyCode == 13) {
           e.preventDefault();
-          console.log("enter")
+          this.selectIndex(ul);
           // document.getElementsByTagName("input")[0].value = ul.childNodes[searchIndex.index].innerHTML;
           // ul.childNodes[0].remove();
         }
@@ -169,6 +172,50 @@ export default class ReactSearchBox extends Component {
 
       this.fuse = new Fuse(data, configs)
     }
+  }
+
+  moveDown = ul => {
+    console.log("down")
+    // const { searchIndex } = this.state
+    // console.log("down: " + searchIndex);
+    // var att = document.createAttribute("class");
+    // att.value = "searchIndex";
+
+    // if (searchIndex.index < ul.childNodes.length-1) {
+    //   searchIndex.index++;
+    // }
+    // if (ul.childNodes[searchIndex.index]) {
+    //   ul.childNodes[searchIndex.index].setAttributeNode(att);
+    //   if (ul.childNodes[searchIndex.index].previousSibling) {
+    //     ul.childNodes[searchIndex.index].previousSibling.removeAttribute("class");
+    //   }
+    // }
+  }
+
+  moveUp = ul => {
+    console.log("up")
+    // const { searchIndex } = this.state
+    // console.log("up: " + searchIndex);
+    // var att = document.createAttribute("class");
+    // att.value = "searchIndex";
+
+    // if (searchIndex.index > 0) {
+    //   searchIndex.index--;
+    // }
+    // if (ul.childNodes[searchIndex.index]) {
+    //   ul.childNodes[searchIndex.index].setAttributeNode(att);
+    //   if (ul.childNodes[searchIndex.index].nextSibling) {
+    //     ul.childNodes[searchIndex.index].nextSibling.removeAttribute("class");
+    //   }
+    // }
+  }
+
+  selectIndex = ul => {
+    console.log("enter")
+    // const { searchIndex } = this.state;
+    // console.log("enter: " + searchIndex);
+    // document.getElementsByTagName("input")[0].value = ul.childNodes[searchIndex.index];
+    // ul.childNodes
   }
 
   handleInputChange = e => {
@@ -227,6 +274,12 @@ export default class ReactSearchBox extends Component {
     } = this.props
     const { value } = this.state
 
+
+    // if (!showDropdown) {
+    //   console.log("closing...")
+    //   return false
+    // }
+
     return (
       <InputBox
         type="text"
@@ -260,6 +313,7 @@ export default class ReactSearchBox extends Component {
        * Hide the dropdown once any dropdown item is clicked.
        */
       showDropdown: false,
+      searchIndex: -1,
     })
 
     /**
