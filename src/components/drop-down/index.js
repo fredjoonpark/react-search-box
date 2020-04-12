@@ -39,7 +39,7 @@ class DropDown extends Component {
         dropDownHoverColor={dropDownHoverColor}
         dropDownBorderColor={dropDownBorderColor}
       >
-        <ul>
+        <ul id="search-ul">
           {matchedRecords.map(record => {
             return (
               <li

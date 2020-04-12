@@ -131,6 +131,33 @@ export default class ReactSearchBox extends Component {
     this.fuse = new Fuse(data, configs)
   }
 
+  componentDidMount() {
+    document.getElementById("search-box").addEventListener('keydown', function(e) {
+      var ul = document.getElementById("search-ul");
+      if (ul) {
+        // arrow-down
+        if (e.keyCode == 40) {
+          e.preventDefault();
+          console.log("down")
+          // moveDown(ul);
+        }
+        // arrow-up
+        if (e.keyCode == 38) {
+          e.preventDefault();
+          console.log("up")
+          // moveUp(ul);
+        }
+        // enter
+        if (e.keyCode == 13) {
+          e.preventDefault();
+          console.log("enter")
+          // document.getElementsByTagName("input")[0].value = ul.childNodes[searchIndex.index].innerHTML;
+          // ul.childNodes[0].remove();
+        }
+      }
+    });
+  }
+
   componentDidUpdate(prevProps) {
     const { data, fuseConfigs } = this.props
 
@@ -261,7 +288,10 @@ export default class ReactSearchBox extends Component {
      * If there is no value present in the input box, then the dropdown
      * shouldn't appear.
      */
-    if (!showDropdown) return false
+    if (!showDropdown) {
+      console.log("closing...")
+      return false
+    }
 
     return (
       <DropDown
@@ -275,7 +305,7 @@ export default class ReactSearchBox extends Component {
 
   render() {
     return (
-      <StyledContainer>
+      <StyledContainer id="search-box">
         <GlobalStyle />
         {this.inputNode()}
         {this.dropdownNode()}
