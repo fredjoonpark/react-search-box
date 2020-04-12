@@ -174,8 +174,8 @@ export default class ReactSearchBox extends Component {
     }
   }
 
-  moveDown = ul => {
-    console.log("down")
+  moveDown(ul) {
+    console.log("down!!")
     // const { searchIndex } = this.state
     // console.log("down: " + searchIndex);
     // var att = document.createAttribute("class");
@@ -192,8 +192,8 @@ export default class ReactSearchBox extends Component {
     // }
   }
 
-  moveUp = ul => {
-    console.log("up")
+  moveUp(ul) {
+    console.log("up!!")
     // const { searchIndex } = this.state
     // console.log("up: " + searchIndex);
     // var att = document.createAttribute("class");
@@ -210,8 +210,8 @@ export default class ReactSearchBox extends Component {
     // }
   }
 
-  selectIndex = ul => {
-    console.log("enter")
+  selectIndex(ul) {
+    console.log("enter!!")
     // const { searchIndex } = this.state;
     // console.log("enter: " + searchIndex);
     // document.getElementsByTagName("input")[0].value = ul.childNodes[searchIndex.index];
