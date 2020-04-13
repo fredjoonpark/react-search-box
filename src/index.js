@@ -141,10 +141,11 @@ export default class ReactSearchBox extends Component {
     document.getElementById("search-box").addEventListener('keydown', function(e) {
       let ul = document.getElementById("search-ul");
       if (ul) {
-        let index = self.state.searchIndex;
         // arrow-down
         if (e.keyCode == 40) {
+          let index = self.state.searchIndex + 1;
           e.preventDefault();
+          console.log("down: " + index);
 
           if (index < ul.childNodes.length-1) {
             self.setState({
@@ -152,7 +153,6 @@ export default class ReactSearchBox extends Component {
             })
           }
           if (ul.childNodes[index]) {
-            console.log("down: " + index);
             let att = document.createAttribute("class");
             att.value = "searchIndex";
             ul.childNodes[index].setAttributeNode(att);
@@ -163,7 +163,9 @@ export default class ReactSearchBox extends Component {
         }
         // arrow-up
         if (e.keyCode == 38) {
+          let index = self.state.searchIndex - 1;
           e.preventDefault();
+          console.log("up: " + index);
 
           if (index > 0) {
             self.setState({
@@ -171,7 +173,6 @@ export default class ReactSearchBox extends Component {
             })
           }
           if (ul.childNodes[index]) {
-            console.log("up: " + index);
             let att = document.createAttribute("class");
             att.value = "searchIndex";
             ul.childNodes[index].setAttributeNode(att);
