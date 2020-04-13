@@ -167,7 +167,7 @@ export default class ReactSearchBox extends Component {
           e.preventDefault();
           console.log("up: " + index);
 
-          if (index > 0) {
+          if (index > -1) {
             self.setState({
               searchIndex: index
             })
@@ -188,7 +188,7 @@ export default class ReactSearchBox extends Component {
           // console.log("enter!!")
           // const { searchIndex } = this.state;
           if (ul.childNodes[index]) {
-            console.log("enter: " + ul.childNodes[index]);
+            console.log("enter: " + ul.childNodes[index].innerHTML);
           }
           
           // this.setState({
