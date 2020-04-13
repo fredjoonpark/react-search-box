@@ -145,8 +145,6 @@ export default class ReactSearchBox extends Component {
         if (e.keyCode == 40) {
           let index = self.state.searchIndex + 1;
           e.preventDefault();
-          console.log("down: " + index);
-
           if (index < ul.childNodes.length) {
             self.setState({
               searchIndex: index
@@ -165,8 +163,6 @@ export default class ReactSearchBox extends Component {
         if (e.keyCode == 38) {
           let index = self.state.searchIndex - 1;
           e.preventDefault();
-          console.log("up: " + index);
-
           if (index > -1) {
             self.setState({
               searchIndex: index
@@ -185,17 +181,13 @@ export default class ReactSearchBox extends Component {
         if (e.keyCode == 13) {
           e.preventDefault();
           let index = self.state.searchIndex;
-          // console.log("enter!!")
-          // const { searchIndex } = this.state;
           if (ul.childNodes[index]) {
-            console.log("enter: " + ul.childNodes[index].innerHTML);
+            this.setState({
+              value: ul.childNodes[index].innerHTML,
+              showDropdown: false,
+              searchIndex: -1,
+            })
           }
-          
-          this.setState({
-            ul.childNodes[index].innerHTML,
-            showDropdown: false,
-            searchIndex: -1,
-          })
         }
       }
     });
