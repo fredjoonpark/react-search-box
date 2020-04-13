@@ -182,7 +182,7 @@ export default class ReactSearchBox extends Component {
           e.preventDefault();
           let index = self.state.searchIndex;
           if (ul.childNodes[index]) {
-            this.setState({
+            self.setState({
               value: ul.childNodes[index].innerHTML,
               showDropdown: false,
               searchIndex: -1,
