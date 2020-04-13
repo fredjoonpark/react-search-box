@@ -226,8 +226,10 @@ export default class ReactSearchBox extends Component {
 
     let index = this.state.searchIndex;
     let ul = document.getElementById("search-ul");
-    if (ul.childNodes[index] && ul.childNodes[index].hasAttribute('class')) {
-      ul.childNodes[index].removeAttribute("class");
+    if (ul) {
+      if (ul.childNodes[index] && ul.childNodes[index].hasAttribute('class')) {
+        ul.childNodes[index].removeAttribute("class");
+      }
     }
 
     /**
