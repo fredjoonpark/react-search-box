@@ -271,12 +271,6 @@ export default class ReactSearchBox extends Component {
     } = this.props
     const { value } = this.state
 
-
-    // if (!showDropdown) {
-    //   console.log("closing...")
-    //   return false
-    // }
-
     return (
       <InputBox
         type="text"
@@ -340,7 +334,6 @@ export default class ReactSearchBox extends Component {
      * shouldn't appear.
      */
     if (!showDropdown) {
-      console.log("closing...")
       return false
     }
 
