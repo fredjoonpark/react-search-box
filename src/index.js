@@ -136,44 +136,7 @@ export default class ReactSearchBox extends Component {
     this.fuse = new Fuse(data, configs)
   }
 
-  componentDidMount() {
-    document.getElementById("search-box").addEventListener('keydown', function(e) {
-      var ul = document.getElementById("search-ul");
-      if (ul) {
-        // arrow-down
-        if (e.keyCode == 40) {
-          e.preventDefault();
-          this.moveDown(ul);
-        }
-        // arrow-up
-        if (e.keyCode == 38) {
-          e.preventDefault();
-          this.moveUp(ul);
-        }
-        // enter
-        if (e.keyCode == 13) {
-          e.preventDefault();
-          this.selectIndex(ul);
-          // document.getElementsByTagName("input")[0].value = ul.childNodes[searchIndex.index].innerHTML;
-          // ul.childNodes[0].remove();
-        }
-      }
-    });
-  }
-
-  componentDidUpdate(prevProps) {
-    const { data, fuseConfigs } = this.props
-
-    if (prevProps.data !== data) {
-      /**
-       * Override defaultFuseConfigs with fuseConfigs prop
-       */
-      const configs = Object.assign({}, this.defaultFuseConfigs, fuseConfigs)
-
-      this.fuse = new Fuse(data, configs)
-    }
-  }
-
+  
   moveDown(ul) {
     console.log("down!!")
     // const { searchIndex } = this.state
@@ -216,6 +179,44 @@ export default class ReactSearchBox extends Component {
     // console.log("enter: " + searchIndex);
     // document.getElementsByTagName("input")[0].value = ul.childNodes[searchIndex.index];
     // ul.childNodes
+  }
+
+  componentDidMount() {
+    document.getElementById("search-box").addEventListener('keydown', function(e) {
+      var ul = document.getElementById("search-ul");
+      if (ul) {
+        // arrow-down
+        if (e.keyCode == 40) {
+          e.preventDefault();
+          this.moveDown(ul);
+        }
+        // arrow-up
+        if (e.keyCode == 38) {
+          e.preventDefault();
+          this.moveUp(ul);
+        }
+        // enter
+        if (e.keyCode == 13) {
+          e.preventDefault();
+          this.selectIndex(ul);
+          // document.getElementsByTagName("input")[0].value = ul.childNodes[searchIndex.index].innerHTML;
+          // ul.childNodes[0].remove();
+        }
+      }
+    });
+  }
+
+  componentDidUpdate(prevProps) {
+    const { data, fuseConfigs } = this.props
+
+    if (prevProps.data !== data) {
+      /**
+       * Override defaultFuseConfigs with fuseConfigs prop
+       */
+      const configs = Object.assign({}, this.defaultFuseConfigs, fuseConfigs)
+
+      this.fuse = new Fuse(data, configs)
+    }
   }
 
   handleInputChange = e => {
