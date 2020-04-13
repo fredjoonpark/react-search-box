@@ -235,6 +235,7 @@ export default class ReactSearchBox extends Component {
        * Show the dropdown onChange of the input.
        */
       showDropdown: true,
+      searchIndex: -1
     })
 
     /**
