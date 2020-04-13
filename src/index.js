@@ -147,7 +147,7 @@ export default class ReactSearchBox extends Component {
           e.preventDefault();
           console.log("down: " + index);
 
-          if (index < ul.childNodes.length-1) {
+          if (index < ul.childNodes.length) {
             self.setState({
               searchIndex: index
             })
@@ -188,15 +188,15 @@ export default class ReactSearchBox extends Component {
           // console.log("enter!!")
           // const { searchIndex } = this.state;
           console.log("enter: " + ul.childNodes[index]);
-          // document.getElementsByTagName("input")[0].value = ul.childNodes[index];
-          // this.setState({
-            // ul.childNodes[index],
+          
+          this.setState({
+            ul.childNodes[index],
             /**
              * Hide the dropdown once any dropdown item is clicked.
              */
-            // showDropdown: false,
-            // searchIndex: -1,
-          // })
+            showDropdown: false,
+            searchIndex: -1,
+          })
         }
       }
     });
