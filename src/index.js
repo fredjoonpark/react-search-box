@@ -139,7 +139,7 @@ export default class ReactSearchBox extends Component {
   componentDidMount() {
     var self = this;
     document.getElementById("search-box").addEventListener('keydown', function(e) {
-      var ul = document.getElementById("search-ul");
+      let ul = document.getElementById("search-ul");
       if (ul) {
         let index = self.state.searchIndex;
         // arrow-down
@@ -153,7 +153,7 @@ export default class ReactSearchBox extends Component {
             })
           }
           if (ul.childNodes[index]) {
-            var att = document.createAttribute("class");
+            let att = document.createAttribute("class");
             att.value = "searchIndex";
             ul.childNodes[index].setAttributeNode(att);
             if (ul.childNodes[index].previousSibling) {
@@ -172,7 +172,7 @@ export default class ReactSearchBox extends Component {
             })
           }
           if (ul.childNodes[index]) {
-            var att = document.createAttribute("class");
+            let att = document.createAttribute("class");
             att.value = "searchIndex";
             ul.childNodes[index].setAttributeNode(att);
             if (ul.childNodes[index].nextSibling) {
@@ -262,12 +262,6 @@ export default class ReactSearchBox extends Component {
     } = this.props
     const { value } = this.state
 
-
-    // if (!showDropdown) {
-    //   console.log("closing...")
-    //   return false
-    // }
-
     return (
       <InputBox
         type="text"
@@ -332,6 +326,7 @@ export default class ReactSearchBox extends Component {
      */
     if (!showDropdown) {
       console.log("closing...")
+      this.setState({ searchIndex: -1 })
       return false
     }
 
