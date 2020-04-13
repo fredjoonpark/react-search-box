@@ -143,19 +143,48 @@ export default class ReactSearchBox extends Component {
         // arrow-down
         if (e.keyCode == 40) {
           e.preventDefault();
-          moveDown(ul);
+          console.log("down!!")
+          // const { searchIndex } = this.state
+          // console.log("down: " + searchIndex);
+          // var att = document.createAttribute("class");
+          // att.value = "searchIndex";
+
+          // if (searchIndex.index < ul.childNodes.length-1) {
+          //   searchIndex.index++;
+          // }
+          // if (ul.childNodes[searchIndex.index]) {
+          //   ul.childNodes[searchIndex.index].setAttributeNode(att);
+          //   if (ul.childNodes[searchIndex.index].previousSibling) {
+          //     ul.childNodes[searchIndex.index].previousSibling.removeAttribute("class");
+          //   }
+          // }
         }
         // arrow-up
         if (e.keyCode == 38) {
           e.preventDefault();
-          moveUp(ul);
+          // const { searchIndex } = this.state
+          // console.log("up: " + searchIndex);
+          // var att = document.createAttribute("class");
+          // att.value = "searchIndex";
+
+          // if (searchIndex.index > 0) {
+          //   searchIndex.index--;
+          // }
+          // if (ul.childNodes[searchIndex.index]) {
+          //   ul.childNodes[searchIndex.index].setAttributeNode(att);
+          //   if (ul.childNodes[searchIndex.index].nextSibling) {
+          //     ul.childNodes[searchIndex.index].nextSibling.removeAttribute("class");
+          //   }
+          // }
         }
         // enter
         if (e.keyCode == 13) {
           e.preventDefault();
-          selectIndex(ul);
-          // document.getElementsByTagName("input")[0].value = ul.childNodes[searchIndex.index].innerHTML;
-          // ul.childNodes[0].remove();
+          console.log("enter!!")
+          // const { searchIndex } = this.state;
+          // console.log("enter: " + searchIndex);
+          // document.getElementsByTagName("input")[0].value = ul.childNodes[searchIndex.index];
+          // ul.childNodes
         }
       }
     });
@@ -172,50 +201,6 @@ export default class ReactSearchBox extends Component {
 
       this.fuse = new Fuse(data, configs)
     }
-  }
-
-  moveDown = ul => {
-    console.log("down!!")
-    // const { searchIndex } = this.state
-    // console.log("down: " + searchIndex);
-    // var att = document.createAttribute("class");
-    // att.value = "searchIndex";
-
-    // if (searchIndex.index < ul.childNodes.length-1) {
-    //   searchIndex.index++;
-    // }
-    // if (ul.childNodes[searchIndex.index]) {
-    //   ul.childNodes[searchIndex.index].setAttributeNode(att);
-    //   if (ul.childNodes[searchIndex.index].previousSibling) {
-    //     ul.childNodes[searchIndex.index].previousSibling.removeAttribute("class");
-    //   }
-    // }
-  }
-
-  moveUp = ul => {
-    console.log("up!!")
-    // const { searchIndex } = this.state
-    // console.log("up: " + searchIndex);
-    // var att = document.createAttribute("class");
-    // att.value = "searchIndex";
-
-    // if (searchIndex.index > 0) {
-    //   searchIndex.index--;
-    // }
-    // if (ul.childNodes[searchIndex.index]) {
-    //   ul.childNodes[searchIndex.index].setAttributeNode(att);
-    //   if (ul.childNodes[searchIndex.index].nextSibling) {
-    //     ul.childNodes[searchIndex.index].nextSibling.removeAttribute("class");
-    //   }
-    // }
-  }
-
-  selectIndex = ul => {
-    console.log("enter!!")
-    // const { searchIndex } = this.state;
-    // console.log("enter: " + searchIndex);
-    // document.getElementsByTagName("input")[0].value = ul.childNodes[searchIndex.index];
-    // ul.childNodes
   }
 
   handleInputChange = e => {
