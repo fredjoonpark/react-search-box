@@ -191,11 +191,11 @@ export default class ReactSearchBox extends Component {
             console.log("enter: " + ul.childNodes[index].innerHTML);
           }
           
-          // this.setState({
-          //   ul.childNodes[index].innerHTML,
-          //   showDropdown: false,
-          //   searchIndex: -1,
-          // })
+          this.setState({
+            ul.childNodes[index].innerHTML,
+            showDropdown: false,
+            searchIndex: -1,
+          })
         }
       }
     });
