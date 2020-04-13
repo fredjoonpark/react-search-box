@@ -192,7 +192,7 @@ export default class ReactSearchBox extends Component {
           }
           
           // this.setState({
-          //   ul.childNodes[index],
+          //   ul.childNodes[index].innerHTML,
           //   showDropdown: false,
           //   searchIndex: -1,
           // })
@@ -231,6 +231,12 @@ export default class ReactSearchBox extends Component {
      * 'value' using Fuse plugin.
      */
     const matchedRecords = this.fuse.search(value)
+
+    let index = this.state.searchIndex;
+    let ul = document.getElementById("search-ul");
+    if (ul.childNodes[index] && ul.childNodes[index].hasAttribute('class')) {
+      ul.childNodes[index].removeAttribute("class");
+    }
 
     /**
      * Update 'value' state with the value from the input box.
