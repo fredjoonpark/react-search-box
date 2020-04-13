@@ -137,7 +137,13 @@ export default class ReactSearchBox extends Component {
   }
 
   componentDidMount() {
+    console.log("@@@@@@@1")
+    console.log(this.state.searchIndex)
+    console.log("@@@@@@@1")
     document.getElementById("search-box").addEventListener('keydown', function(e) {
+      console.log("@@@@@@@2")
+      console.log(this.state.searchIndex)
+      console.log("@@@@@@@2")
       var ul = document.getElementById("search-ul");
       if (ul) {
         // arrow-down
