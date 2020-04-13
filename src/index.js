@@ -82,7 +82,7 @@ export default class ReactSearchBox extends Component {
      */
     value: this.props.value ? this.props.value : '',
     matchedRecords: [],
-    // searchIndex: -1,
+    searchIndex: -1,
   }
 
   constructor(props) {
