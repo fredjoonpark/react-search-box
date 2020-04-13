@@ -143,17 +143,17 @@ export default class ReactSearchBox extends Component {
         // arrow-down
         if (e.keyCode == 40) {
           e.preventDefault();
-          this.moveDown(ul);
+          moveDown(ul);
         }
         // arrow-up
         if (e.keyCode == 38) {
           e.preventDefault();
-          this.moveUp(ul);
+          moveUp(ul);
         }
         // enter
         if (e.keyCode == 13) {
           e.preventDefault();
-          this.selectIndex(ul);
+          selectIndex(ul);
           // document.getElementsByTagName("input")[0].value = ul.childNodes[searchIndex.index].innerHTML;
           // ul.childNodes[0].remove();
         }
