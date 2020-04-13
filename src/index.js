@@ -143,11 +143,11 @@ export default class ReactSearchBox extends Component {
       if (ul) {
         // arrow-down
         if (e.keyCode == 40) {
-          let index = self.state.searchIndex + 1;
           e.preventDefault();
+          let index = self.state.searchIndex + 1;
           console.log("down: " + index);
 
-          if (index < ul.childNodes.length-1) {
+          if (index < ul.childNodes.length) {
             self.setState({
               searchIndex: index
             })
@@ -163,8 +163,8 @@ export default class ReactSearchBox extends Component {
         }
         // arrow-up
         if (e.keyCode == 38) {
-          let index = self.state.searchIndex - 1;
           e.preventDefault();
+          let index = self.state.searchIndex - 1;
           console.log("up: " + index);
 
           if (index > 0) {
@@ -184,11 +184,17 @@ export default class ReactSearchBox extends Component {
         // enter
         if (e.keyCode == 13) {
           e.preventDefault();
+
+          let index = self.state.searchIndex - 1;
           console.log("enter!!")
-          // const { searchIndex } = this.state;
-          // console.log("enter: " + searchIndex);
-          // document.getElementsByTagName("input")[0].value = ul.childNodes[index];
-          // ul.childNodes
+          self.setState({
+            ul.childNodes[index],
+            /**
+             * Hide the dropdown once any dropdown item is clicked.
+             */
+            showDropdown: false,
+            searchIndex: -1,
+          })
         }
       }
     });
