@@ -139,13 +139,14 @@ export default class ReactSearchBox extends Component {
   componentDidMount() {
     document.getElementById("search-box").addEventListener('keydown', function(e) {
       var ul = document.getElementById("search-ul");
+      const { searchIndex } = this.state
       if (ul) {
         // arrow-down
         if (e.keyCode == 40) {
           e.preventDefault();
-          console.log("down!!")
+          // console.log("down!!")
           // const { searchIndex } = this.state
-          // console.log("down: " + searchIndex);
+          console.log("down: " + searchIndex);
           // var att = document.createAttribute("class");
           // att.value = "searchIndex";
 
@@ -162,8 +163,9 @@ export default class ReactSearchBox extends Component {
         // arrow-up
         if (e.keyCode == 38) {
           e.preventDefault();
+          // console.log("up!!")
           // const { searchIndex } = this.state
-          // console.log("up: " + searchIndex);
+          console.log("up: " + searchIndex);
           // var att = document.createAttribute("class");
           // att.value = "searchIndex";
 
