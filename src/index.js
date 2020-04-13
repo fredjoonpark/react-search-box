@@ -137,54 +137,46 @@ export default class ReactSearchBox extends Component {
   }
 
   componentDidMount() {
-    console.log("@@@@@@@1")
-    console.log(this.state.searchIndex)
-    console.log("@@@@@@@1")
-
     var self = this;
+    var att = document.createAttribute("class");
+    att.value = "searchIndex";
     document.getElementById("search-box").addEventListener('keydown', function(e) {
-      console.log("@@@@@@@2")
-      console.log(self.state.searchIndex)
-      console.log("@@@@@@@2")
       var ul = document.getElementById("search-ul");
       if (ul) {
+        let index = self.state.searchIndex;
         // arrow-down
         if (e.keyCode == 40) {
           e.preventDefault();
-          // console.log("down!!")
-          // const { searchIndex } = this.state
-          console.log("down: " + this.state.searchIndex);
-          // var att = document.createAttribute("class");
-          // att.value = "searchIndex";
+          console.log("down: " + index);
 
-          // if (searchIndex.index < ul.childNodes.length-1) {
-          //   searchIndex.index++;
-          // }
-          // if (ul.childNodes[searchIndex.index]) {
-          //   ul.childNodes[searchIndex.index].setAttributeNode(att);
-          //   if (ul.childNodes[searchIndex.index].previousSibling) {
-          //     ul.childNodes[searchIndex.index].previousSibling.removeAttribute("class");
-          //   }
-          // }
+          if (index < ul.childNodes.length-1) {
+            this.setState({
+              searchIndex: searchIndex + 1
+            })
+          }
+          if (ul.childNodes[index]) {
+            ul.childNodes[index].setAttributeNode(att);
+            if (ul.childNodes[index].previousSibling) {
+              ul.childNodes[index].previousSibling.removeAttribute("class");
+            }
+          }
         }
         // arrow-up
         if (e.keyCode == 38) {
           e.preventDefault();
-          // console.log("up!!")
-          // const { searchIndex } = this.state
-          console.log("up: " + this.state.searchIndex);
-          // var att = document.createAttribute("class");
-          // att.value = "searchIndex";
+          console.log("up: " + index);
 
-          // if (searchIndex.index > 0) {
-          //   searchIndex.index--;
-          // }
-          // if (ul.childNodes[searchIndex.index]) {
-          //   ul.childNodes[searchIndex.index].setAttributeNode(att);
-          //   if (ul.childNodes[searchIndex.index].nextSibling) {
-          //     ul.childNodes[searchIndex.index].nextSibling.removeAttribute("class");
-          //   }
-          // }
+          if (index > 0) {
+            this.setState({
+              searchIndex: searchIndex - 1
+            })
+          }
+          if (ul.childNodes[index]) {
+            ul.childNodes[index].setAttributeNode(att);
+            if (ul.childNodes[index].nextSibling) {
+              ul.childNodes[index].nextSibling.removeAttribute("class");
+            }
+          }
         }
         // enter
         if (e.keyCode == 13) {
@@ -192,7 +184,7 @@ export default class ReactSearchBox extends Component {
           console.log("enter!!")
           // const { searchIndex } = this.state;
           // console.log("enter: " + searchIndex);
-          // document.getElementsByTagName("input")[0].value = ul.childNodes[searchIndex.index];
+          // document.getElementsByTagName("input")[0].value = ul.childNodes[index];
           // ul.childNodes
         }
       }
