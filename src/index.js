@@ -138,8 +138,6 @@ export default class ReactSearchBox extends Component {
 
   componentDidMount() {
     var self = this;
-    var att = document.createAttribute("class");
-    att.value = "searchIndex";
     document.getElementById("search-box").addEventListener('keydown', function(e) {
       var ul = document.getElementById("search-ul");
       if (ul) {
@@ -155,6 +153,8 @@ export default class ReactSearchBox extends Component {
             })
           }
           if (ul.childNodes[index]) {
+            var att = document.createAttribute("class");
+            att.value = "searchIndex";
             ul.childNodes[index].setAttributeNode(att);
             if (ul.childNodes[index].previousSibling) {
               ul.childNodes[index].previousSibling.removeAttribute("class");
@@ -172,6 +172,8 @@ export default class ReactSearchBox extends Component {
             })
           }
           if (ul.childNodes[index]) {
+            var att = document.createAttribute("class");
+            att.value = "searchIndex";
             ul.childNodes[index].setAttributeNode(att);
             if (ul.childNodes[index].nextSibling) {
               ul.childNodes[index].nextSibling.removeAttribute("class");
