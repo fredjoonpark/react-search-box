@@ -187,16 +187,15 @@ export default class ReactSearchBox extends Component {
           let index = self.state.searchIndex;
           // console.log("enter!!")
           // const { searchIndex } = this.state;
-          console.log("enter: " + ul.childNodes[index]);
+          if (ul.childNodes[index]) {
+            console.log("enter: " + ul.childNodes[index]);
+          }
           
-          this.setState({
-            ul.childNodes[index],
-            /**
-             * Hide the dropdown once any dropdown item is clicked.
-             */
-            showDropdown: false,
-            searchIndex: -1,
-          })
+          // this.setState({
+          //   ul.childNodes[index],
+          //   showDropdown: false,
+          //   searchIndex: -1,
+          // })
         }
       }
     });
