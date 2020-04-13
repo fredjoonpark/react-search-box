@@ -150,8 +150,8 @@ export default class ReactSearchBox extends Component {
           console.log("down: " + index);
 
           if (index < ul.childNodes.length-1) {
-            this.setState({
-              searchIndex: searchIndex + 1
+            self.setState({
+              searchIndex: index + 1
             })
           }
           if (ul.childNodes[index]) {
@@ -167,8 +167,8 @@ export default class ReactSearchBox extends Component {
           console.log("up: " + index);
 
           if (index > 0) {
-            this.setState({
-              searchIndex: searchIndex - 1
+            self.setState({
+              searchIndex: index - 1
             })
           }
           if (ul.childNodes[index]) {
