@@ -187,6 +187,11 @@ export default class ReactSearchBox extends Component {
               showDropdown: false,
               searchIndex: -1,
             })
+
+            /**
+             * Trigger the 'onSelect' prop once everything is done if it's passed.
+             */
+            !!onSelect && onSelect(ul.childNodes[index].getAttribute('key')))
           }
         }
       }
