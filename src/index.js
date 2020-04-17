@@ -188,9 +188,14 @@ export default class ReactSearchBox extends Component {
               searchIndex: -1,
             })
 
+            const { matchedRecords } = self.state
+
             const { onSelect, onChange } = self.props
 
-            console.log(ul.childNodes[index])
+            console.log(matchedRecords)
+            console.log(ul.childNodes[self.state.matchedRecords[index]])
+
+            
 
             !!onSelect && onSelect({'key': ul.childNodes[index].getAttribute('key')})
           }
