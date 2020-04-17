@@ -190,6 +190,8 @@ export default class ReactSearchBox extends Component {
 
             const { onSelect, onChange } = self.props
 
+            console.log(ul.childNodes[index])
+
             !!onSelect && onSelect({'key': ul.childNodes[index].getAttribute('key')})
           }
         }
