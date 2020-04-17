@@ -192,8 +192,8 @@ export default class ReactSearchBox extends Component {
 
             const { onSelect, onChange } = self.props
 
-            console.log(matchedRecords)
-            console.log(ul.childNodes[self.state.matchedRecords[index]])
+            console.log(matchedRecords[index])
+            console.log(self.state.matchedRecords[index])
 
             
 
