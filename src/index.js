@@ -188,7 +188,10 @@ export default class ReactSearchBox extends Component {
               searchIndex: -1,
             })
 
-            !!self.props.onSelect && self.props.onSelect({'key': self.state.matchedRecords[index].key})
+            !!self.props.onSelect && self.props.onSelect({
+              'key': self.state.matchedRecords[index].key,
+              'value': ul.childNodes[index].innerHTML
+            })
           }
         }
       }
