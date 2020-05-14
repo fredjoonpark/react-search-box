@@ -194,6 +194,15 @@ export default class ReactSearchBox extends Component {
             })
           }
         }
+
+        // escape
+        if (e.keyCode == 27) {
+          e.preventDefault();
+          this.setState({
+            showDropdown: false,
+            searchIndex: -1,
+          })
+        }
       }
     });
   }
@@ -344,7 +353,7 @@ export default class ReactSearchBox extends Component {
 
     return (
       <DropDown
-        matchedRecords={matchedRecords}
+        matchedRecords={matchedRecords.slice(0,7)}
         onClick={this.handleDropdownItemClick}
         dropDownHoverColor={dropDownHoverColor}
         dropDownBorderColor={dropDownBorderColor}
