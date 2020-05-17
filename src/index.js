@@ -198,7 +198,7 @@ export default class ReactSearchBox extends Component {
         // escape
         if (e.keyCode == 27) {
           e.preventDefault();
-          this.setState({
+          self.setState({
             showDropdown: false,
             searchIndex: -1,
           })
