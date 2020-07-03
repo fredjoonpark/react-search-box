@@ -5,7 +5,6 @@ const StyledInput = styled.input`
   padding: 10px 20px;
   height: ${props => props.inputBoxHeight};
   border: 1px solid ${props => props.inputBoxBorderColor};
-  border-radius: 5px;
   color: ${props => props.inputBoxFontColor};
 
   &:focus {
