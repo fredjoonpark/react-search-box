@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 const StyledDropdown = styled.div`
-  margin: 10px 0 0;
+  // margin: 10px 0 0;
   background-color: #fff;
   box-shadow: rgba(0, 0, 0, 0.1) 0 0 0 0, rgba(0, 0, 0, 0.1) 0px 4px 11px;
 
